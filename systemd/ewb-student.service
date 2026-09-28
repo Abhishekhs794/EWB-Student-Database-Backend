@@ -1,0 +1,14 @@
+[Unit]
+Description=EWB Student Database FastAPI Service
+After=network.target
+
+[Service]
+User=YOUR_LINUX_USERNAME
+WorkingDirectory=/path/to/student_management_project
+EnvironmentFile=/path/to/student_management_project/.env
+ExecStart=/path/to/student_management_project/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
